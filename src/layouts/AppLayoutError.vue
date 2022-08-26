@@ -1,3 +1,6 @@
 <template>
-  <div>error</div>
+    <div>
+        <slot />
+        <div>error</div>
+    </div>
 </template>

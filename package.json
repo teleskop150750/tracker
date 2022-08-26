@@ -1,58 +1,66 @@
 {
-  "name": "hello-world",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:css": "stylelint ./src/**/*.{vue,css} --fix"
-  },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "core-js": "^3.24.1",
-    "focus-trap": "^6.9.4",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.3",
-    "vuex": "^4.0.2"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.19",
-    "@vue/cli-plugin-eslint": "~4.5.19",
-    "@vue/cli-plugin-router": "~4.5.19",
-    "@vue/cli-plugin-vuex": "~4.5.19",
-    "@vue/cli-service": "~4.5.19",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.0.0",
-    "prettier": "^2.2.1",
-    "stylelint": "^14.9.1",
-    "stylelint-color-format": "^1.1.0",
-    "stylelint-config-html": "^1.1.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^26.0.0",
-    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-semantic-groups": "^1.1.4",
-    "stylelint-webpack-plugin": "^2.4.0"
-  },
-  "lint-staged": {
-    "*.{js}": [
-      "npm run lint",
-      "git add"
-    ],
-    "*.vue": [
-      "npm run lint",
-      "npm run lint:css",
-      "git add"
-    ],
-    "*.css": [
-      "npm run lint:css",
-      "git add"
-    ]
-  }
+    "name": "hello-world",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "lint:css": "stylelint ./src/**/*.{vue,css} --fix",
+        "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx|js|jsx|json|css|md|mdx|html|vue)\"",
+        "format": "npm run prettier -- --write"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.5",
+        "@vueup/vue-quill": "^1.0.0-beta.9",
+        "axios": "^0.27.2",
+        "core-js": "^3.24.1",
+        "dayjs": "^1.11.4",
+        "focus-trap": "^6.9.4",
+        "focus-trap-vue": "^3.3.1",
+        "vue": "^3.2.37",
+        "vue-router": "^4.1.3",
+        "vue-select": "^4.0.0-beta.3",
+        "vue-virtual-scroller": "^2.0.0-alpha.1",
+        "vuex": "^4.0.2"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.5.19",
+        "@vue/cli-plugin-eslint": "~4.5.19",
+        "@vue/cli-plugin-router": "~4.5.19",
+        "@vue/cli-plugin-vuex": "~4.5.19",
+        "@vue/cli-service": "~4.5.19",
+        "@vue/compiler-sfc": "^3.0.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.0.0",
+        "prettier": "^2.2.1",
+        "stylelint": "^14.9.1",
+        "stylelint-color-format": "^1.1.0",
+        "stylelint-config-html": "^1.1.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-standard": "^26.0.0",
+        "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+        "stylelint-order": "^5.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-semantic-groups": "^1.1.4",
+        "stylelint-webpack-plugin": "^2.4.0"
+    },
+    "lint-staged": {
+        "*.{js}": [
+            "npm run lint",
+            "git add"
+        ],
+        "*.vue": [
+            "npm run lint",
+            "npm run lint:css",
+            "git add"
+        ],
+        "*.css": [
+            "npm run lint:css",
+            "git add"
+        ]
+    }
 }

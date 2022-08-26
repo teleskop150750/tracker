@@ -1,0 +1,135 @@
+.v-component,
+.v-component * {
+    box-sizing: border-box;
+}
+
+/* Non vue overlay animations */
+.v-connected-overlay {
+    opacity: 0;
+    transform: scaleY(0.8);
+
+    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.v-connected-overlay-visible {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.v-connected-overlay-hidden {
+    opacity: 0;
+    transform: scaleY(1);
+
+    transition: opacity 0.1s linear;
+}
+
+.v-hidden-accessible {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+
+    border: 0;
+
+    overflow: hidden;
+
+    clip: rect(0 0 0 0);
+}
+
+.v-hidden-accessible input,
+.v-hidden-accessible select {
+    transform: scale(0);
+}
+
+/* Vue based overlay animations */
+.v-connected-overlay-enter-from {
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+
+.v-connected-overlay-leave-to {
+    opacity: 0;
+}
+
+.v-connected-overlay-enter-active {
+    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1), opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.v-connected-overlay-leave-active {
+    transition: opacity 0.1s linear;
+}
+
+.v-input-text {
+    padding: 0.5rem 0.75rem;
+
+    color: rgb(73 80 87);
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+
+    border: 1px solid rgb(206 212 218);
+    border-radius: 4px;
+
+    background: rgb(255 255 255);
+
+    appearance: none;
+
+    transition: background-color 0.15s ease 0s, border-color 0.15s ease 0s, box-shadow 0.15s ease 0s;
+}
+
+.v-input-text:enabled:hover {
+    border-color: rgb(206 212 218);
+}
+
+.v-input-text:enabled:focus {
+    border-color: rgb(0 123 255);
+
+    outline: none 0;
+    outline-offset: 0;
+
+    box-shadow: rgb(38 143 255 / 50%) 0 0 0 0.2rem;
+}
+
+.v-input-text.v-invalid.v-component {
+    border-color: rgb(220 53 69);
+}
+
+.v-input-text.v-input-text-sm {
+    padding: 0.4375rem 0.6562rem;
+
+    font-size: 0.875rem;
+}
+
+.v-input-text.v-input-text-lg {
+    padding: 0.625rem 0.9375rem;
+
+    font-size: 1.25rem;
+}
+
+.v-icon {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 1em;
+    height: 1em;
+    box-sizing: content-box;
+
+    line-height: 1;
+    direction: ltr;
+    letter-spacing: normal;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: none;
+    word-wrap: normal;
+
+    fill: currentcolor;
+}
+
+.v-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}

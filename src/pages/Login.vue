@@ -1,79 +1,64 @@
+<template>
+    <VFormCard>
+        <VForm @submit="login">
+            <template #header>
+                <VTitle>Войти</VTitle>
+            </template>
+
+            <VTextField class="v-form__field" label="Email" name="lastName" placeholder="email" v-model.trim="user.email" />
+            <VTextField class="v-form__field" label="Password" name="password" placeholder="password" v-model.trim="user.password" />
+
+            <template #footer>
+                <div class="v-form-actions">
+                    <VBtn type="submit" label="Войти" />
+                    <VBtn flat :to="{ name: 'register' }" label="Зарегистрироваться" />
+                </div>
+            </template>
+        </VForm>
+    </VFormCard>
+</template>
+
 <script>
-import VForm from "../components/base/VForm";
-import VTextField from "../components/base/VTextField";
-import VFormCard from "../components/base/VFormCard";
-import VButton from "../components/base/VButton";
-import VLink from "../components/base/VLink";
-import VTitle from "../components/base/VTitle";
-// import UserService from "../services/UserService";
+import VForm from '../components/base/VForm/VForm'
+import VTextField from '../components/base/VTextField/VTextField'
+import VFormCard from '../components/base/VFormCard/VFormCard'
+import VBtn from '../components/base/VBtn/VBtn'
+import VTitle from '../components/base/VTitle/VTitle'
+import { UserService } from '../services/UserService'
 
 export default {
-  components: {
-    VForm,
-    VTextField,
-    VButton,
-    VFormCard,
-    VLink,
-    VTitle,
-  },
-  data() {
-    return {
-      user: {
-        login: "",
-        password: "",
-      },
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        if (this.user.login === "" || this.user.password === "") {
-          return;
-        }
-
-        // const response = await UserService.login(this.user);
-        await this.$store.commit("auth/SET_USER", {
-          ...this.user,
-        });
-        this.$router.push({ name: "home" });
-      } catch (error) {
-        console.error(error);
-      }
+    components: {
+        VForm,
+        VTextField,
+        VBtn,
+        VFormCard,
+        VTitle,
     },
-  },
-};
+    data() {
+        return {
+            user: {
+                email: '',
+                password: '',
+            },
+        }
+    },
+    methods: {
+        async login() {
+            try {
+                if (this.user.login === '' || this.user.password === '') {
+                    return
+                }
+
+                const response = await UserService.login(this.user)
+                console.log(response.data)
+                await this.$store.commit('auth/SET_USER', {
+                    ...response.data,
+                })
+                this.$router.push({ name: 'home' })
+            } catch (error) {
+                console.error(error)
+            }
+        },
+    },
+}
 </script>
-
-<template>
-  <VFormCard>
-    <VForm @submit="login">
-      <template #header>
-        <VTitle>Login</VTitle>
-      </template>
-
-      <VTextField
-        class="v-form__field"
-        label="Login"
-        name="login"
-        placeholder="admin"
-        v-model.trim="user.login"
-      />
-
-      <VTextField
-        class="v-form__field"
-        label="Password"
-        name="password"
-        placeholder="password"
-        v-model.trim="user.password"
-      />
-
-      <template #footer>
-        <VButton block type="submit">Log in</VButton>
-      </template>
-    </VForm>
-
-    <template #footer>
-      <VLink :to="{ name: 'register' }" label="Create account" />
-    </template>
-  </VFormCard>
-</template>

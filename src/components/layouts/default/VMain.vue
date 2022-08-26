@@ -1,5 +1,5 @@
 <template>
-  <main class="v-main">
-    <slot />
-  </main>
+    <main class="v-main">
+        <slot />
+    </main>
 </template>
